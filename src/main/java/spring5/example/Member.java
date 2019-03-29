@@ -1,4 +1,4 @@
-package org.jacob.book.example;
+package spring5.example;
 
 public class Member {
 
