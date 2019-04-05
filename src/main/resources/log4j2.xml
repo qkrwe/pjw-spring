@@ -10,7 +10,11 @@
 		<Root level="error">
 			<AppenderRef ref="STDOUT" />
 		</Root>
+<<<<<<< HEAD
 		<Logger name="spring5" level="debug" additivity="false">
+=======
+		<Logger name="pjw-spring" level="info" additivity="false">
+>>>>>>> 202e5ed9552729177704f7010603894a5b7bfdf7
 			<AppenderRef ref="STDOUT" />
 		</Logger>
 	</Loggers>

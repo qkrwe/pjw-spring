@@ -23,7 +23,6 @@ public class MemberRegisterService {
 	 * 회원 등록
 	 * 
 	 * @param req 사용자가 입력한 회원 정보
-	 * @throws DuplicateMemberException 이메일이 중복될 경우에 발생
 	 */
 	public void regist(RegisterRequest req) throws DuplicateMemberException {
 		logger.debug(req);

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignore Gradle project-specific cache directory
 .gradle
 
@@ -12,3 +13,17 @@ gradle
 gradlew*
 settings.gradle
 db.properties
+=======
+# Ignore Gradle project-specific cache directory
+.gradle
+
+
+
+.*
+!.gitignore
+bin
+build/
+gradle
+gradlew*
+settings.gradle
+>>>>>>> 202e5ed9552729177704f7010603894a5b7bfdf7
