@@ -1,21 +1,24 @@
-package spring5.chap03;
+package spring5.chap04;
 
-import org.springframework.context.ApplicationContext;
+
+import spring5.chap03.RegisterRequest;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * MemberRegisterService를 테스트한다.<br>
- * Spring ApplicationContext로 빈을 생성한다.*
-**/
-public class MemberMainUsingSpring {
+ * component scan으로 빈을 생성한다.
+ * 
+ * @author Jacob
+ */
+public class MemberMainUsingComponentScan {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-				"chap03.xml");
+		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"chap04.xml");
 		MemberRegisterService regService = ctx.getBean("memberRegisterService",
 				MemberRegisterService.class);
-
+		
 		// registerRequest 초기화
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail("jacob@irafe.com");
@@ -24,5 +27,6 @@ public class MemberMainUsingSpring {
 
 		// 회원 등록
 		regService.regist(req);
+		ctx.close();
 	}
 }

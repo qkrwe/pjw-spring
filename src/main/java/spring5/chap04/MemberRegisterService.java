@@ -1,7 +1,12 @@
-package spring5.chap03;
+package spring5.chap04;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import spring5.chap03.DuplicateMemberException;
+import spring5.chap03.Member;
+import spring5.chap03.RegisterRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * p.55 [리스트 3.1] MemberRegisterService 수정<br>
@@ -9,15 +14,13 @@ import org.apache.logging.log4j.Logger;
  * 
  * @author Jacob
  */
+@Service
 public class MemberRegisterService {
 
+	@Autowired
 	private MemberDao memberDao;
 
 	static Logger logger = LogManager.getLogger();
-
-	public void setMemberDao(MemberDao memberDao) {
-		this.memberDao = memberDao;
-	}
 
 	/**
 	 * 회원 등록
@@ -25,7 +28,7 @@ public class MemberRegisterService {
 	 * @param req 사용자가 입력한 회원 정보
 	 * @throws DuplicateMemberException 이메일이 중복될 경우에 발생
 	 */
-	public void regist(RegisterRequest req) throws DuplicateMemberException {
+	public void regist(RegisterRequest req) {
 		logger.debug(req);
 		Member member = memberDao.selectByEmail(req.getEmail());
 
@@ -35,7 +38,8 @@ public class MemberRegisterService {
 		}
 
 		// 회원정보 저장
-		Member newMember = new Member(req.getEmail(), req.getPassword(), req.getName());
+		Member newMember = new Member(req.getEmail(), req.getPassword(),
+				req.getName());
 		memberDao.insert(newMember);
 		logger.debug("회원 정보를 저장했습니다.");
 	}

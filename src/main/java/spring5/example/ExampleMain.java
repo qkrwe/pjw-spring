@@ -3,7 +3,7 @@ package spring5.example;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class ArticleMain {
+public class ExampleMain {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("chap02.xml");
